@@ -35,5 +35,4 @@ echo.
 echo ==========================================
 echo    SETUP COMPLETE!
 echo ==========================================
-echo Starting the development server...
-call pnpm dev
+exit /b
