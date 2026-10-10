@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 🚀 Automated Setup Guide [FOR TEAM MEMBERS]
 
-## Getting Started
+To streamline the onboarding process, we have provided an automated configuration script. If your system does not currently have Node.js or `pnpm` installed, please open **PowerShell (Run as Administrator)** in your designated workspace directory, copy the entire code block below, paste it into the terminal, and press Enter:
 
-First, run the development server:
+```powershell
+# 1. Clone the main repository and the private admin submodule
+git clone --recursive [https://github.com/Kamojii06/LMS_Project.git](https://github.com/Kamojii06/LMS_Project.git)
+cd LMS_Project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# 2. Navigate to the admin submodule and checkout the main branch
+cd app/admin
+git checkout main
+cd ../..
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# 3. Install Node.js automatically via Windows Package Manager
+winget install OpenJS.NodeJS.LTS --accept-package-agreements --accept-source-agreements
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# 4. Refresh current environment variables to recognize Node.js
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 5. Install pnpm globally and execute the project setup script
+npm install -g pnpm
+.\setup.bat
