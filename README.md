@@ -1,6 +1,6 @@
 ## Setup Guide
 
-To streamline the onboarding process, we have provided an automated configuration script. If your system does not currently have Node.js or `pnpm` installed, please open **PowerShell (Run as Administrator)** in your designated workspace directory, copy the entire code block below, paste it into the terminal, and press Enter:
+To streamline the onboarding process, we have provided an automated configuration script. If your system does not currently have Node.js or `pnpm` installed, please open PowerShell in your designated workspace directory, copy the entire code block below, paste it into the terminal, and press Enter:
 
 ```powershell
 # 1. Clone the main repository and the private admin submodule
