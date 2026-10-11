@@ -25,6 +25,10 @@
     "@radix-ui/react-slot": "^1.4.0",
     "@t3-oss/env-nextjs": "^0.13.11",
     "@tanstack/react-table": "^9.2.6",
+    "@tiptap/extension-text-align": "^3.31.4",
+    "@tiptap/pm": "^3.31.4",
+    "@tiptap/react": "^3.31.4",
+    "@tiptap/starter-kit": "^3.31.4",
     "better-auth": "^1.7.7",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
@@ -50,6 +54,7 @@
   "devDependencies": {
     "@prisma/cli-engine": "^0.6.3",
     "@tailwindcss/turbopack": "^4",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^20",
     "@types/pg": "^8.23.1",
     "@types/react": "^19",
