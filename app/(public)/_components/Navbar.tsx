@@ -44,7 +44,17 @@ export function Navbar() {
                         <ThemeToggle/>
 
                         {isPending ? null : session ? (
-                            <UserDropdown email={session.user.email} image={session.user.image || ""} name={session.user.name} />
+                            <UserDropdown
+                                email={session.user.email}
+                                image={session?.user.image 
+                                    ?? `https://avatar.vercel.sh//rauchg`
+                                }
+                                name={
+                                    session?.user.name && session.user.name.length > 0
+                                    ? session.user.name
+                                    : session?.user.email.split("@")[0]
+                                }
+                            />
                         ) : (
                             <>
                                 <Link href="/login" className={buttonVariants({variant: "secondary"})}>

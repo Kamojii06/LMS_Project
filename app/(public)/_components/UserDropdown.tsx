@@ -43,7 +43,7 @@ export function UserDropdown({email, name, image}: iAppProps) {
         <CircleUserRound size={16} strokeWidth={2} aria-hidden="true" />
       </DropdownMenuTrigger>
       
-      <DropdownMenuContent className="w-64" align="end">
+      <DropdownMenuContent className="min-w-48" align="end">
         
         <DropdownMenuGroup>
           <DropdownMenuLabel className="flex items-start gap-3">
