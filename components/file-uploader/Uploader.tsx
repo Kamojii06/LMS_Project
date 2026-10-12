@@ -21,7 +21,12 @@ interface UploaderState {
     fileType: "image" | "video";
 }
 
-export function Uploader() {
+interface iAppProps {
+    value?: string;
+    onChange?: (value: string) => void;
+}
+
+export function Uploader({ onChange, value }: iAppProps) {
 
     const [fileState, setFileState] = useState<UploaderState>({
         error: false,
@@ -30,7 +35,8 @@ export function Uploader() {
         uploading: false,
         progress: 0,
         isDeleting: false,
-        fileType: "image"
+        fileType: "image",
+        key: value,
     });
 
     async function uploadFile(file: File) {
@@ -90,6 +96,8 @@ export function Uploader() {
                             uploading: false,
                             key: key,
                         }));
+
+                        onChange?.(key); // Call onChange with the key of the uploaded file
 
                         toast.success("File uploaded successfully");
                         resolve();
@@ -176,6 +184,8 @@ export function Uploader() {
                 URL.revokeObjectURL(fileState.objectUrl);
             }
 
+            onChange?.(""); //indicate the file has been removed
+
             setFileState(() => ({
                 file: null,
                 uploading: false,
@@ -252,7 +262,8 @@ export function Uploader() {
         maxFiles: 1,
         multiple: false,
         maxSize: 5 * 1024 * 1024,
-        onDropRejected: rejectedFiles
+        onDropRejected: rejectedFiles,
+        disabled: fileState.uploading || !!fileState.objectUrl,
     });
     return (
         <Card {...getRootProps()} className={cn(
