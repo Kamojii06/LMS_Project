@@ -118,7 +118,7 @@ export function NavUser() {
                 />
                 Dashboard
               </DropdownMenuItem>
-              <DropdownMenuItem render = {<Link href="/admin/course"/>}>
+              <DropdownMenuItem render = {<Link href="/admin/courses"/>}>
                 
                 <Tv2Icon
                 />
