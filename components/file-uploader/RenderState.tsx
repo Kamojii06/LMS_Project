@@ -40,25 +40,26 @@ export function RenderErrorState() {
 
 export function RenderUploadedState({ previewUrl, isDeleting, handleRemoveFile }: { previewUrl: string; isDeleting: boolean; handleRemoveFile: () => void; }) {
     return (
-      <div>
+      <div className="relative w-full h-full">
         <Image
           src={previewUrl}
           alt="Uploaded File"
           fill
+          unoptimized
           className="object-contain p-2"
         />
         <Button
-            variant="destructive"
-            size="icon"
-            className={cn("absolute top-4 right-4")}
-            onClick={handleRemoveFile}
-            disabled={isDeleting}
-            >
-            {isDeleting ? (
-                <Loader2 className="size-4 animate-spin" />
-            ) : (
-                <XIcon className="size-4" />
-            )}
+          variant="destructive"
+          size="icon"
+          className={cn("absolute top-4 right-4")}
+          onClick={handleRemoveFile}
+          disabled={isDeleting}
+        >
+          {isDeleting ? (
+            <Loader2 className="size-4 animate-spin" />
+          ) : (
+            <XIcon className="size-4" />
+          )}
         </Button>
       </div>
     );

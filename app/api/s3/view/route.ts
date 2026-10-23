@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
 
         const response = NextResponse.redirect(signedUrl, 302);
 
-        response.headers.set("Cache-Control", "public, max-age=3600"); // Cache trong 1 giờ
+        response.headers.set("Cache-Control", "private, max-age=3000"); // để cho cache hết hạn khoảng 10p trước signed URL
         return response;
     } catch {
         return NextResponse.json({ error: "Failed to generate view URL" }, { status: 500 });
