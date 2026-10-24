@@ -16,3 +16,6 @@ minimumReleaseAgeExclude:
   - next@16.4.3
   - '@next/eslint-plugin-next@16.4.3'
   - eslint-config-next@16.4.3
+permissions:
+  '@tanstack/react-table':
+    skills: false
