@@ -22,7 +22,20 @@ export function RichTextEditor({field}: {field: any}) {
         onUpdate: ({editor}) => {
             field.onChange(JSON.stringify(editor.getJSON()))
         },
-        content: field.value ? JSON.parse(field.value) : '<p>Enter description</p>',
+        //content: field.value ? JSON.parse(field.value) : '<p>Enter description</p>' (Comment đạon thay thế AI)
+
+        // Chỗ này sửa lại bằng AI do lỗi Rich text của file lesson form 2:53:29
+        content: (() => {
+            if (!field.value) return '<p>Enter description</p>';
+            try {
+                // Thử parse nếu là chuỗi JSON hợp lệ
+                return JSON.parse(field.value);
+            } catch (e) {
+                // Nếu không phải JSON (ví dụ như chuỗi text thường "sdasdfas"), 
+                // ta trả về nguyên bản hoặc bọc vào thẻ <p>
+                return field.value;
+            }
+        })(),
     })
 
     return(
