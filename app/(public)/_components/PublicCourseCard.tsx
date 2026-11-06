@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { PublicCourseType } from "@/app/data/course/get-all-courses";
 import { useConstructUrl } from "@/hooks/use-construct-url";
 import Image from "next/image";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 import { SchoolIcon, TimerIcon } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
