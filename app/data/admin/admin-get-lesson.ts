@@ -1,3 +1,5 @@
+import "server-only";
+
 import { prisma } from "@/lib/db";
 import { requireAdmin } from "./require-admin"; // 2:35:00: AI fix import thư viện
 import { NotFound } from "@aws-sdk/client-s3";
