@@ -44,6 +44,7 @@ export async function enrollInCourseAction(courseId: string): Promise<ApiRespons
                 title: true,
                 price: true,
                 slug: true,
+                stripePriceId: true,
             }
         });
 
@@ -138,7 +139,7 @@ export async function enrollInCourseAction(courseId: string): Promise<ApiRespons
                 customer: stripeCustomerId,
                 line_items: [
                     {
-                        price: "price_1UYiw6JdVpBU79uusBoYJMIa",
+                        price: course.stripePriceId,
                         quantity: 1,
                     },
                 ],
